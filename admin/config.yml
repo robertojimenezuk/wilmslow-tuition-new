@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "public/index.html"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
+  - name: "teachers"
+    label: "Teachers"
+    folder: "content/teachers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Qualifications", name: "qualifications", widget: "text"}
+      - {label: "Bio", name: "body", widget: "markdown"}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Student/Relationship", name: "relationship", widget: "string"}
+      - {label: "Video URL", name: "video_url", widget: "string", required: false}
+      - {label: "Testimonial Text", name: "body", widget: "markdown"}
